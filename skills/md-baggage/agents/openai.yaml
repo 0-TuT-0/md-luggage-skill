@@ -1,6 +1,6 @@
 interface:
   display_name: "开发文档管家"
-  short_description: "按需求准备有效上下文，维护规格、任务、测试资料并建议下一阶段技能"
+  short_description: "按需准备与维护需求、任务、验证和经验资料，有价值时提醒合适技能"
   default_prompt: "使用 $md-baggage 为当前需求准备必要资料，并维护本阶段已确认的文档变化。"
 policy:
   allow_implicit_invocation: true
