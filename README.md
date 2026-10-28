@@ -4,17 +4,9 @@
 
 ## 使用
 
-源码入口：[skills/md-baggage/SKILL.md](skills/md-baggage/SKILL.md)。支持本地路径引用的环境可先按路径试用；完成验证与最终审核后再安装到工具支持的用户级 Skill 目录。
+安装与使用：[Using-README.md](skills/md-baggage/Using-README.md)，包含项目级／全局级安装、首次接入、日常请求和更新方法。
 
-示例请求：
-
-- “使用 $md-baggage 为报名需求准备 grill 所需资料。”
-- “同步刚确认的规则，保留尚未实现的状态。”
-- “盘点旧资料，先给整理方案。”
-- “核对本次文档引用，并说明当前阶段缺口。”
-- “提示本需求可能复用的经验及适用性差异，先不自动采用。”
-
-安装包为 skills/md-baggage/ 整个目录。自动选择保持开启；实际触发依赖工具的发现机制，不是后台监听，也不保证每轮都触发。
+源码入口：[skills/md-baggage/SKILL.md](skills/md-baggage/SKILL.md)。支持本地路径引用的环境也可先按路径试用。
 
 ## 结构与范围
 
