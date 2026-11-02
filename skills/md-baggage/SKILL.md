@@ -1,8 +1,8 @@
 ---
 name: md-baggage
-description: 开发任务开始或恢复时按需准备需求上下文，形成已确认变化时维护规格、任务、验证与经验资料；也用于接入或检查项目文档。有实际需要时提醒使用文档管理或独立开发技能。
+description: 开发任务开始或恢复时按需准备上下文，维护已确认变化、验证与经验资料，按用户请求维护项目问题备忘；也用于接入或检查项目文档。有实际需要时提醒合适技能。
 metadata:
-  version: "0.2.0"
+  version: "0.2.1"
 ---
 
 # 开发文档管家
@@ -20,6 +20,7 @@ metadata:
 | --- | --- |
 | 接入、盘点或整理既有文档 | [接入规则](references/onboarding.md) |
 | 准备／恢复议题、同步决定与进度、检查冲突、维护或查阅相关经验 | [记录与权威来源](references/records.md) |
+| 用户要求记录、更新、关闭或重开项目问题备忘 | [TODO 规则](references/records.md#项目问题备忘) |
 | 维护测试资料、回归或最终审核记录 | [测试与审核](references/testing-review.md) |
 | 判断是否需要技能提醒，或准备实际产物交接 | [提醒与必要交接](references/routing.md) |
 
@@ -44,5 +45,6 @@ metadata:
 - [共享入口](assets/project-index.md.template)：建立最小配置与资料导航。
 - [需求 README](assets/feature-readme.md.template)：建立需求短入口。
 - [测试资料](assets/test.md.template)：维护功能或联调的范围、入口与验证摘要。
+- [问题备忘](assets/todo.md.template)：首次明确收录真实问题时建立项目 TODO.md。
 
 模板只生成有内容的部分，项目事实由现场调查和已确认决定填写。
