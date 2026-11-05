@@ -2,7 +2,7 @@
 
 用于 AI 协作开发的文档管理 Skill，当前版本 **v0.2.1**。核心是轻量提醒入口与文档管理内核：按需准备资料、保存有效结论、维护验证与经验及用户提出的问题备忘；Matt 等开发技能保持独立。
 
-安装与操作见 [Using-README.md](skills/md-baggage/Using-README.md)，包含“项目级安装＋个人采用”、全局安装、首次接入和更新。AI 指令入口为 [SKILL.md](skills/md-baggage/SKILL.md)。
+安装与操作见 [Using-README.md](skills/md-baggage/Using-README.md)，包含“项目级安装＋个人采用”、全局安装、Codex 本地 worktree、首次接入和更新。AI 指令入口为 [SKILL.md](skills/md-baggage/SKILL.md)。
 
 ## 安装范围与采用范围
 
@@ -38,6 +38,7 @@ md-baggage-skill/
 ├── AGENTS.md / CLAUDE.md          # 原有规范；个人接入默认不修改
 ├── .codex/ / .claude/             # 工具原生配置保持原位
 ├── .agents/skills/md-baggage/     # 可选的项目安装副本
+├── .worktreeinclude              # 可选的本地 worktree 复制清单；个人新建时本地排除
 └── docs/
     ├── 原有专题资料…              # 保留原来源与权威归属
     └── md-baggage/
@@ -58,6 +59,8 @@ md-baggage-skill/
 
 正文实际保存，导航及跨文档引用使用链接。临时重述已有资料可留在聊天；新决定、重要事实、关键未决问题和交接所需信息写回对应资料。
 
+项目级个人副本可按需通过 `.worktreeinclude` 带入 Codex 桌面端新建的本地 worktree，默认只带 Skill；受管资料另按任务范围处理，副本不会持续同步。配置与核对见[worktree 使用说明](skills/md-baggage/Using-README.md#codex-本地-worktree)。
+
 团队已有测试由 `test.md` 引用，不搬运、复制或为符合目录结构而重写。项目测试体系可可靠使用时沿用其位置；确需另建的独立个人用例仅作本地验证，不宣称团队 CI 或正式回归已有覆盖。稳定个人用例持续保留；一次性探针在收尾清理、恢复任务时检查，未决试验和复现证据保留。
 
 ## 项目问题备忘
@@ -73,6 +76,10 @@ md-baggage-skill/
 v0.2.0 将旧的 `docs/share/`、`docs/private/` 固定路径改为 `docs/md-baggage/{share,private}/`。升级 Skill 不等于迁移项目；先识别旧布局和当前权威来源，明确方案后再切换，避免两套正文并行。
 
 源码仓库：[0-TuT-0/md-luggage-skill](https://github.com/0-TuT-0/md-luggage-skill)。自动选择保持开启，实际发现与触发由工具决定；安装不保证每轮调用。使用说明包含本地排除及加载、落档核对方法。
+
+## Worktree 支持补充
+
+2026-11-06，补充项目级个人安装的 Codex 本地 worktree 复制规则、配置示例与检查项。结构、引用、原有 Shell 示例及临时 Git worktree 的排除和跟踪行为检查通过；桌面自动复制已由用户实测确认。复制仍按创建时快照处理，受管资料按任务范围另行准备。
 
 ## v0.2.1 验证
 

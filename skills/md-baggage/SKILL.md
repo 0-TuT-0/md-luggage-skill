@@ -18,7 +18,7 @@ metadata:
 
 | 本次工作 | 何时读取 |
 | --- | --- |
-| 接入、盘点或整理既有文档 | [接入规则](references/onboarding.md) |
+| 接入、准备 worktree、盘点或整理既有文档 | [接入规则](references/onboarding.md) |
 | 准备／恢复议题、同步决定与进度、检查冲突、维护或查阅相关经验 | [记录与权威来源](references/records.md) |
 | 用户要求记录、更新、关闭或重开项目问题备忘 | [TODO 规则](references/records.md#项目问题备忘) |
 | 维护测试资料、回归或最终审核记录 | [测试与审核](references/testing-review.md) |

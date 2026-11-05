@@ -106,6 +106,32 @@ fi
 
 全局安装不代表每个项目已经接入，也不代表团队采用。个人接入仍按上面的范围授权和项目本地排除规则处理；此时无需排除一个并不存在的项目安装副本。链接会直接使用源码工作区内容，包括未提交修改。
 
+## Codex 本地 worktree
+
+项目级个人安装的 Skill 未提交到 Git，新建 worktree 时不会随检出自动出现。同一目录切换分支通常会保留这些本地文件；同一用户环境的全局安装无需复制项目副本。
+
+要让 Codex 桌面端在创建本地 managed worktree 时带上项目副本，可明确提出：
+
+```text
+使用 $md-baggage，为当前项目的个人安装补充 Codex 本地 worktree 支持。
+只携带 .agents/skills/md-baggage/，保留已有复制清单及 Git 排除规则；
+新建个人配置只留本地，已有共享配置先说明所需改动。
+```
+
+在源项目根的 `.worktreeinclude` 中增量加入以下条目：
+
+```text
+.agents/skills/md-baggage/
+```
+
+新建的个人 `.worktreeinclude` 本身也应在仓库本地 `info/exclude` 中增加 `/.worktreeinclude`，沿用安装副本与资料的原排除规则。保留已有内容；如果清单已经被 Git 跟踪，应按公共配置变更取得相应授权，忽略规则不会隐藏其修改。
+
+[官方 worktree 说明](https://learn.chatgpt.com/docs/environments/git-worktrees)规定：只复制匹配且被 Git 忽略的文件，跳过源符号链接，不覆盖目标已有文件。这适用于桌面端创建的本地 managed worktree；手动执行 `git worktree add` 或远程 worktree 需另行处理。项目副本为符号链接时不能依靠此机制复制，需按授权准备实际目录。
+
+此配置只带 Skill，不默认带上需求、经验、TODO 或 private。续接任务时另按当前范围准备相关资料，保持原权威来源。复制是一次快照，之后各副本独立更新；已有 worktree 不会自动补齐，新目录再作为创建来源时也要核对 `.worktreeinclude`。同 clone 共用接入选择，不代表 Skill 和资料已经到位。
+
+创建完成后核对新目录中实际加载的 Skill 路径、版本和 Git 排除状态。只完成配置时应标为“已配置，桌面自动复制待验证”。
+
 ## 确认加载与实际执行
 
 Codex 会发现 Skill 变化；未出现时重启后检查安装路径与 `SKILL.md`。[官方说明](https://learn.chatgpt.com/docs/build-skills)。在支持 `$` 的界面可点名 `$md-baggage`，也可从技能选择器中选择。
@@ -114,6 +140,7 @@ Codex 会发现 Skill 变化；未出现时重启后检查安装路径与 `SKILL
 
 - 加载 v0.2.1，且没有同名全局／项目副本混用。
 - 个人安装副本与 `docs/md-baggage/` 被本地规则排除，没有进入待提交文件。
+- 启用 worktree 复制时，个人新建的 `.worktreeinclude` 也被本地排除；新目录中的副本实际存在。
 - 受管入口能定位原规范、当前需求与权威来源，必要正文已实际保存。
 - `test.md` 能定位原测试及其执行入口；独立用例标为个人验证，不宣称团队 CI／正式回归已覆盖。
 - 公共入口、旧资料和跟踪状态符合本次授权，没有因接入而被改写。
